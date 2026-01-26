@@ -1,13 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
+import {
+    Field,
+    FieldDescription,
+    FieldGroup,
+    FieldLabel,
+} from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
+    InputGroup,
+    InputGroupAddon,
+    InputGroupInput,
 } from "@/components/ui/input-group";
-import { ShieldCheck, Stethoscope } from "lucide-react";
+import { Stethoscope } from "lucide-react";
 
 const DoctorForm = () => {
   return (
@@ -40,12 +45,16 @@ const DoctorForm = () => {
 
         <Button className="w-full">Sign In</Button>
 
-        <div className="flex items-center justify-center gap-2 text-gray-500">
+        <FieldDescription className="text-center">
+          Don&apos;t have an account? <a href="#">Sign up</a>
+        </FieldDescription>
+
+        {/* <div className="flex items-center justify-center gap-2 text-gray-500">
           <ShieldCheck className="size-4" />
           <span className="text-xs uppercase font-medium tracking-wider">
             Secure Access Portal
           </span>
-        </div>
+        </div> */}
       </FieldGroup>
     </form>
   );

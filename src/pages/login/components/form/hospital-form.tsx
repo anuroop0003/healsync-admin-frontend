@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Field,
+  FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
@@ -16,7 +17,7 @@ import {
   type HospitalLoginValues,
 } from "@/validations/login/hospital.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Eye, EyeOff, Hospital, KeyRound, ShieldCheck } from "lucide-react";
+import { Eye, EyeOff, Hospital, KeyRound } from "lucide-react";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
@@ -109,12 +110,9 @@ const HospitalForm = () => {
           Sign In
         </Button>
 
-        <div className="flex items-center justify-center gap-2 text-gray-500">
-          <ShieldCheck className="size-4" />
-          <span className="text-xs uppercase font-medium tracking-wider">
-            Secure Access Portal
-          </span>
-        </div>
+        <FieldDescription className="text-center">
+          Don&apos;t have an account? <a href="#">Sign up</a>
+        </FieldDescription>
       </FieldGroup>
     </form>
   );
