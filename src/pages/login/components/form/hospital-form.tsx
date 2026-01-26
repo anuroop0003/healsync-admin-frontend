@@ -22,7 +22,7 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
 const HospitalForm = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const { control, handleSubmit } = useForm<HospitalLoginValues>({
     resolver: zodResolver(hospitalLoginSchema),
@@ -106,9 +106,7 @@ const HospitalForm = () => {
           )}
         />
 
-        <Button type="submit" className="w-full">
-          Sign In
-        </Button>
+        <Button type="submit">Sign In</Button>
 
         <FieldDescription className="text-center">
           Don&apos;t have an account? <a href="#">Sign up</a>

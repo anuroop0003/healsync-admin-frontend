@@ -1,49 +1,111 @@
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
-    Field,
-    FieldDescription,
-    FieldGroup,
-    FieldLabel,
+  Field,
+  FieldDescription,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
 } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
 import {
-    InputGroup,
-    InputGroupAddon,
-    InputGroupInput,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
 } from "@/components/ui/input-group";
-import { Stethoscope } from "lucide-react";
+import {
+  doctorLoginSchema,
+  type DoctorLoginValues,
+} from "@/validations/login/doctor.schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Eye, EyeOff, KeyRound, Stethoscope } from "lucide-react";
+import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 
 const DoctorForm = () => {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+
+  const { control, handleSubmit } = useForm<DoctorLoginValues>({
+    resolver: zodResolver(doctorLoginSchema),
+    defaultValues: {
+      doctorId: "",
+      password: "",
+      stayLogged: true,
+    },
+  });
+
+  const onSubmit = (data: DoctorLoginValues) => {
+    console.log("Doctor Login:", data);
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <FieldGroup>
-        <Field>
-          <FieldLabel>Doctor ID</FieldLabel>
-          <InputGroup>
-            <InputGroupInput placeholder="DOCT-00-00-00" />
-            <InputGroupAddon>
-              <Stethoscope />
-            </InputGroupAddon>
-          </InputGroup>
-        </Field>
+        <Controller
+          name="doctorId"
+          control={control}
+          render={({ field, fieldState: { error } }) => (
+            <Field>
+              <FieldLabel>Doctor ID</FieldLabel>
+              <InputGroup>
+                <InputGroupInput {...field} placeholder="DOCT-00-00-00" />
+                <InputGroupAddon>
+                  <Stethoscope />
+                </InputGroupAddon>
+              </InputGroup>
+              <FieldError className="-mt-2">{error?.message}</FieldError>
+            </Field>
+          )}
+        />
 
-        <Field>
-          <FieldLabel>Password</FieldLabel>
-          <Input type="password" />
-        </Field>
+        <Controller
+          name="password"
+          control={control}
+          render={({ field, fieldState: { error } }) => (
+            <Field>
+              <FieldLabel>Password</FieldLabel>
+              <InputGroup>
+                <InputGroupInput
+                  {...field}
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter password"
+                />
+                <InputGroupAddon>
+                  <KeyRound className="rotate-45" />
+                </InputGroupAddon>
+                <InputGroupAddon
+                  align="inline-end"
+                  className="cursor-pointer"
+                  onClick={() => setShowPassword((v) => !v)}
+                >
+                  {showPassword ? <EyeOff /> : <Eye />}
+                </InputGroupAddon>
+              </InputGroup>
+              <FieldError className="-mt-2">{error?.message}</FieldError>
+            </Field>
+          )}
+        />
 
-        <Field orientation="horizontal">
-          <Checkbox id="doctor-stay" defaultChecked />
-          <FieldLabel
-            htmlFor="doctor-stay"
-            className="font-normal cursor-pointer"
-          >
-            Stay logged in
-          </FieldLabel>
-        </Field>
+        <Controller
+          name="stayLogged"
+          control={control}
+          render={({ field }) => (
+            <Field orientation="horizontal">
+              <Checkbox
+                id="doctor-stay"
+                checked={field.value}
+                onCheckedChange={field.onChange}
+              />
+              <FieldLabel
+                htmlFor="doctor-stay"
+                className="font-normal cursor-pointer"
+              >
+                Stay logged in
+              </FieldLabel>
+            </Field>
+          )}
+        />
 
-        <Button className="w-full">Sign In</Button>
+        <Button type="submit">Sign In</Button>
 
         <FieldDescription className="text-center">
           Don&apos;t have an account? <a href="#">Sign up</a>
