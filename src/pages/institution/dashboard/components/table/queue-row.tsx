@@ -4,7 +4,10 @@ import { TableCell, TableRow } from "@/components/ui/table";
 import { CheckCircle2, Clock, Dot, Eye, Loader2 } from "lucide-react";
 
 const StatusBadge = ({ status }: { status: string }) => (
-  <Badge variant="outline" className="flex items-center gap-1.5">
+  <Badge
+    variant="outline"
+    className="flex items-center gap-1.5 rounded-md leading-none p-1 text-muted-foreground"
+  >
     {status === "Waiting" && <Clock className="h-3.5 w-3.5 text-amber-500" />}
     {status === "Upcoming" && (
       <Loader2 className="h-3.5 w-3.5 text-slate-400" />
@@ -31,13 +34,15 @@ const QueueRow = ({ patient }: { patient: any }) => (
       </div>
     </TableCell>
 
-    <TableCell className="text-muted-foreground">{patient.time}</TableCell>
+    <TableCell className="font-medium text-muted-foreground">
+      {patient.time}
+    </TableCell>
 
     <TableCell>
       <StatusBadge status={patient.status} />
     </TableCell>
 
-    <TableCell className="text-right">
+    <TableCell className="text-center">
       <Button size="icon">
         <Eye />
       </Button>

@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardAction,
@@ -13,6 +14,8 @@ import {
 import {
   Table,
   TableBody,
+  TableCell,
+  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -77,11 +80,17 @@ const QueueTable = () => (
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Token</TableHead>
-            <TableHead>Patient Name</TableHead>
-            <TableHead>Arrival Time</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Actions</TableHead>
+            <TableHead className="uppercase tracking-wider">Token</TableHead>
+            <TableHead className="uppercase tracking-wider">
+              Patient Name
+            </TableHead>
+            <TableHead className="uppercase tracking-wider">
+              Arrival Time
+            </TableHead>
+            <TableHead className="uppercase tracking-wider">Status</TableHead>
+            <TableHead className="uppercase tracking-wider w-10">
+              Actions
+            </TableHead>
           </TableRow>
         </TableHeader>
 
@@ -90,6 +99,16 @@ const QueueTable = () => (
             <QueueRow key={p.token} patient={p} />
           ))}
         </TableBody>
+
+        <TableFooter>
+          <TableRow>
+            <TableCell colSpan={5} className="text-center">
+              <Button variant="link" className="cursor-pointer">
+                View full queue (24 more)
+              </Button>
+            </TableCell>
+          </TableRow>
+        </TableFooter>
       </Table>
     </CardContent>
   </Card>

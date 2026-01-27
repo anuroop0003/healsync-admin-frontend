@@ -13,27 +13,27 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group";
 import {
-  hospitalLoginSchema,
-  type HospitalLoginValues,
-} from "@/validations/login/hospital.schema";
+  institutionLoginSchema,
+  type InstitutionLoginValues,
+} from "@/validations/login/institution.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff, Hospital, KeyRound } from "lucide-react";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
-const HospitalForm = () => {
+const InstitutionForm = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
-  const { control, handleSubmit } = useForm<HospitalLoginValues>({
-    resolver: zodResolver(hospitalLoginSchema),
+  const { control, handleSubmit } = useForm<InstitutionLoginValues>({
+    resolver: zodResolver(institutionLoginSchema),
     defaultValues: {
-      hospitalId: "",
+      institutionId: "",
       password: "",
       stayLogged: true,
     },
   });
 
-  const onSubmit = (data: HospitalLoginValues) => {
+  const onSubmit = (data: InstitutionLoginValues) => {
     console.log("Hospital Login:", data);
   };
 
@@ -41,7 +41,7 @@ const HospitalForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <FieldGroup>
         <Controller
-          name="hospitalId"
+          name="institutionId"
           control={control}
           render={({ field, fieldState: { error } }) => (
             <Field>
@@ -57,7 +57,6 @@ const HospitalForm = () => {
           )}
         />
 
-        {/* Password */}
         <Controller
           name="password"
           control={control}
@@ -93,6 +92,7 @@ const HospitalForm = () => {
             <Field orientation="horizontal">
               <Checkbox
                 id="hospital-stay"
+                className="rounded-[3px] cursor-pointer"
                 checked={field.value}
                 onCheckedChange={field.onChange}
               />
@@ -116,4 +116,4 @@ const HospitalForm = () => {
   );
 };
 
-export default HospitalForm;
+export default InstitutionForm;

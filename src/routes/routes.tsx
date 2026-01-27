@@ -1,4 +1,5 @@
-import HospitalLayout from "@/components/layout/institution-layout";
+import InstitutionLayout from "@/components/layout/institution-layout";
+import PatientLayout from "@/components/layout/patient-layout";
 import InstitutionDashboard from "@/pages/institution/dashboard";
 import Login from "@/pages/login/index";
 import { createBrowserRouter } from "react-router-dom";
@@ -10,13 +11,17 @@ export const router = createBrowserRouter([
   },
   {
     path: "institution",
-    element: <HospitalLayout />,
+    element: <InstitutionLayout />,
     children: [
       {
         path: "dashboard",
         element: <InstitutionDashboard />,
       },
     ],
+  },
+  {
+    path: "institution/patient/:id",
+    element: <PatientLayout />,
   },
   {
     path: "/schedule",
