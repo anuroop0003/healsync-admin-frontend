@@ -1,0 +1,19 @@
+services:
+  healsync-frontend:
+    container_name: healsync-frontend
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - '${SERVICE_PORT}'
+    ports:
+      - '${HOST_PORT}:${SERVICE_PORT}'
+    networks:
+      healsync:
+        aliases:
+          - healsync-frontend
+networks:
+  healsync:
+    external: true
