@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import DoctorForm from "./form/doctor-form";
-import HospitalForm from "./form/hospital-form";
+import InstitutionForm from "./form/institution-form";
 
 const AuthCard = () => {
   return (
@@ -20,13 +20,13 @@ const AuthCard = () => {
       </CardHeader>
 
       <CardContent>
-        <Tabs defaultValue="hospital">
+        <Tabs defaultValue="institution">
           <TabsList className="grid grid-cols-2 w-full h-12! mb-3">
             <TabsTrigger
-              value="hospital"
+              value="institution"
               className="data-[state=active]:border-2 data-[state=active]:border-primary cursor-pointer"
             >
-              Hospital
+              Institution
             </TabsTrigger>
             <TabsTrigger
               value="doctor"
@@ -36,8 +36,8 @@ const AuthCard = () => {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="hospital">
-            <HospitalForm />
+          <TabsContent value="institution">
+            <InstitutionForm />
           </TabsContent>
 
           <TabsContent value="doctor">

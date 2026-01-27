@@ -1,13 +1,15 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Bell, CircleSmall } from "lucide-react";
+import { Bell, CircleSmall, Dot } from "lucide-react";
 
 const Header = () => (
   <div className="flex gap-6 items-center justify-between">
     <div className="flex-1">
       <h2 className="text-xl font-semibold">Today's Tokens</h2>
-      <p className="text-sm text-muted-foreground">
-        October 24, 2024 • Tuesday
+      <p className="text-sm text-muted-foreground flex items-center leading-none">
+        October 24, 2024
+        <Dot />
+        Tuesday
       </p>
     </div>
 

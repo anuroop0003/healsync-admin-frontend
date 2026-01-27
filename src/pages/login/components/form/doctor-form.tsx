@@ -92,6 +92,7 @@ const DoctorForm = () => {
             <Field orientation="horizontal">
               <Checkbox
                 id="doctor-stay"
+                className="rounded-[3px] cursor-pointer"
                 checked={field.value}
                 onCheckedChange={field.onChange}
               />
