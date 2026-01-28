@@ -38,7 +38,7 @@ const history = [
 
 const MedicalHistory = () => {
   return (
-    <Card className="w-sm shrink-0 rounded-none border-0 border-r shadow-none">
+    <Card className="rounded-none border-0 border-r shadow-none">
       <CardHeader>
         <CardTitle className="text-xs flex items-center gap-2 tracking-wider font-bold text-muted-foreground">
           <History className="size-4" />

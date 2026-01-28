@@ -6,14 +6,14 @@ const Header = () => (
   <div className="flex gap-6 items-center justify-between">
     <div className="flex-1">
       <h2 className="text-xl font-semibold">Today's Tokens</h2>
-      <p className="text-sm text-muted-foreground flex items-center leading-none">
+      <p className="text-sm text-muted-foreground flex items-center leading-snug">
         October 24, 2024
         <Dot />
         Tuesday
       </p>
     </div>
 
-    <Badge className="uppercase flex items-center border-emerald-300 bg-emerald-50 text-emerald-700 py-2 px-3 leading-tight">
+    <Badge className="uppercase flex items-center border-emerald-300 bg-emerald-50 text-emerald-700 py-2 px-3 leading-snug">
       <CircleSmall className="fill-emerald-700" />
       on service
     </Badge>

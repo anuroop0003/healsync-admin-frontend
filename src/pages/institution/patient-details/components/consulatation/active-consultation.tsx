@@ -5,7 +5,7 @@ import UploadBox from "./components/upload-box";
 
 const ActiveConsultation = () => {
   return (
-    <Card className="w-full p-6 border-0 shadow-none">
+    <Card className="p-6 border-0 shadow-none">
       <Header />
       <UploadBox />
       <PendingAnalysis />
