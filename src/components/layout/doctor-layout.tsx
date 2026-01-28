@@ -1,6 +1,4 @@
-type Props = {};
-
-const DoctorLayout = (props: Props) => {
+const DoctorLayout = () => {
   return <div>DoctorLayout</div>;
 };
 
