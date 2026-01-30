@@ -1,0 +1,12 @@
+
+> admin-frontend@0.0.0 build
+> tsc -b && vite build
+
+src/services/instance/instance.ts(1,35): error TS2307: Cannot find module 'axios' or its corresponding type declarations.
+src/services/instance/instance.ts(8,4): error TS7006: Parameter 'config' implicitly has an 'any' type.
+src/services/instance/instance.ts(15,4): error TS7006: Parameter 'error' implicitly has an 'any' type.
+src/services/instance/instance.ts(19,4): error TS7006: Parameter 'response' implicitly has an 'any' type.
+src/services/query/login/login.api.ts(2,29): error TS2307: Cannot find module '@tanstack/react-query' or its corresponding type declarations.
+src/services/query/login/login.api.ts(13,24): error TS7006: Parameter 'payload' implicitly has an 'any' type.
+src/services/query/login/login.api.ts(26,24): error TS7006: Parameter 'payload' implicitly has an 'any' type.
+src/services/query/register/register.api.ts(2,29): error TS2307: Cannot find module '@tanstack/react-query' or its corresponding type declarations.

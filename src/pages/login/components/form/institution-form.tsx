@@ -20,6 +20,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff, Hospital, KeyRound } from "lucide-react";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const InstitutionForm = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -109,7 +110,8 @@ const InstitutionForm = () => {
         <Button type="submit">Sign In</Button>
 
         <FieldDescription className="text-center">
-          Don&apos;t have an account? <a href="#">Sign up</a>
+          Don&apos;t have an account?{" "}
+          <Link to="/register/institution">Sign up</Link>
         </FieldDescription>
       </FieldGroup>
     </form>

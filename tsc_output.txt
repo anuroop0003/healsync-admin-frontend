@@ -1,0 +1,5 @@
+src/pages/register/components/form/doctor-registration-form.tsx(1,24): error TS2307: Cannot find module '@/components/ui/button' or its corresponding type declarations.
+src/pages/register/components/form/doctor-registration-form.tsx(7,8): error TS2307: Cannot find module '@/components/ui/field' or its corresponding type declarations.
+src/pages/register/components/form/doctor-registration-form.tsx(12,8): error TS2307: Cannot find module '@/components/ui/input-group' or its corresponding type declarations.
+src/pages/register/components/form/doctor-registration-form.tsx(19,8): error TS2307: Cannot find module '@/components/ui/select' or its corresponding type declarations.
+src/pages/register/components/form/doctor-registration-form.tsx(23,8): error TS2307: Cannot find module '@/validations/register/doctor.schema' or its corresponding type declarations.

@@ -20,6 +20,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff, KeyRound, Stethoscope } from "lucide-react";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const DoctorForm = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -109,7 +110,7 @@ const DoctorForm = () => {
         <Button type="submit">Sign In</Button>
 
         <FieldDescription className="text-center">
-          Don&apos;t have an account? <a href="#">Sign up</a>
+          Don&apos;t have an account? <Link to="/register/doctor">Sign up</Link>
         </FieldDescription>
 
         {/* <div className="flex items-center justify-center gap-2 text-gray-500">
